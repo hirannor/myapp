@@ -31,6 +31,6 @@
 		ON
 			(b.username = c.username)
 		WHERE 
-			c.username = #{username}
+			(c.username = #{username} OR a.email = #{username})
 	</select>
 </mapper>
