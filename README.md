@@ -57,7 +57,7 @@ Update **liquibase.properties** with valid details in **core artifact** under [s
     driver=com.mysql.jdbc.Driver
     changeLogFile=liquibase/liquibase-master.xml 
  
-Update **mail.properties** with valid details in **core artifact** under  [src/main/resources/properties/mail/](https://github.com/hirannor/myapp/tree/master/core/src/main/resources/properties/mail) folder
+Update **mail.properties** with valid details in **core artifact** under [src/main/resources/properties/mail/](https://github.com/hirannor/myapp/tree/master/core/src/main/resources/properties/mail) folder
 
     mail.host=127.0.0.1
     mail.port=25
