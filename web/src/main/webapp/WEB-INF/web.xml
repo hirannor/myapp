@@ -3,22 +3,19 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<display-name>Manuscript Web Application</display-name>
+	<display-name>MyApp Web Application</display-name>
 
-	<!-- -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-                        /WEB-INF/applicationContext.xml
-                        /WEB-INF/dispatcher-servlet.xml 
-<!--                         /WEB-INF/spring-security.xml -->
-                </param-value>
+        	 /WEB-INF/dispatcher-servlet.xml 
+        </param-value>
 	</context-param>
 
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/page/index.html</welcome-file>
 	</welcome-file-list>
-	<!-- Root context: applicationContext.xml -->
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -47,8 +44,6 @@
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
 
 </web-app>

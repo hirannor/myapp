@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-	<changeSet author="mkarolyi" id="usr:insert:dml:1.0.0" runOnChange="true" dbms="mysql">
+	<changeSet author="mkarolyi" id="usr:insert:dml:1.0.0"
+		runOnChange="true" dbms="mysql">
 		<insert tableName="USR_USER">
 			<column name="name">Mate Karolyi</column>
 			<column name="age">25</column>
@@ -20,6 +21,26 @@
 			<column name="age">25</column>
 			<column name="email">customer2@localhost.com</column>
 		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">Mate Giba</column>
+			<column name="age">25</column>
+			<column name="email">customer3@localhost.com</column>
+		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">Robert Szentmiklosi</column>
+			<column name="age">30</column>
+			<column name="email">customer4@localhost.com</column>
+		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">David Rigo</column>
+			<column name="age">28</column>
+			<column name="email">customer5@localhost.com</column>
+		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">Peter Sass</column>
+			<column name="age">27</column>
+			<column name="email">customer6@localhost.com</column>
+		</insert>
 		<insert tableName="USR_AUTH">
 			<column name="username">admin</column>
 			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
@@ -34,7 +55,7 @@
 			<column name="username">customer1</column>
 			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
 			</column>
-			<column name="enabled">N</column>
+			<column name="enabled">Y</column>
 		</insert>
 		<insert tableName="USR_ROLE">
 			<column name="username">customer1</column>
@@ -48,6 +69,46 @@
 		</insert>
 		<insert tableName="USR_ROLE">
 			<column name="username">customer2</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer3</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">N</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer3</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer4</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">N</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer4</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer5</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">N</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer5</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer6</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">N</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer6</column>
 			<column name="role">CUSTOMER</column>
 		</insert>
 	</changeSet>

@@ -26,6 +26,7 @@
   
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
+	
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/htmlcontent/**" location="/htmlcontent/" />
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
