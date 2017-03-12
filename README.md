@@ -27,9 +27,9 @@ Single page web application which uses nowadays known technologies.
 
 ## Requirements
 - Application server e.g: Tomcat
-- MySQL database server
+- Database server e,g: MySQL
 - Mail server e.g: Mercury
-- Mail client e.g: Thunderbird
+- Mail client e.g: Mozilla Thunderbird
 
 ## Configuration guide
 Add the following tag to your tomcat **context.xml** with your valid db details:

@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-	<changeSet author="mkarolyi" id="usr:insert:dml:1.0.0"
-		runOnChange="true" dbms="mysql">
+	<changeSet author="mkarolyi" id="usr:insert:dml:1.0.0" runOnChange="true" dbms="mysql, oracle">
 		<insert tableName="USR_USER">
 			<column name="name">Mate Karolyi</column>
 			<column name="age">25</column>

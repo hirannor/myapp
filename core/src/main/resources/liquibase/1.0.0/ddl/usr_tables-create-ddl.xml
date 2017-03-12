@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-	<changeSet author="mkarolyi" id="usr_tables:create:ddl:1.0.0" runOnChange="true" dbms="mysql"> 
+	<changeSet author="mkarolyi" id="usr_tables:create:ddl:1.0.0" runOnChange="true" dbms="mysql, oracle"> 
 		<createTable tableName="USR_USER">
 			<column autoIncrement="true" name="id" type="INT">
 				<constraints primaryKey="true" />
