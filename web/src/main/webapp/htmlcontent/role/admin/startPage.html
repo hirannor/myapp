@@ -1,0 +1,36 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Index</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Lorem ipsum dolor sit amet</div>
+			<div class="panel-body">
+				<p>Dear {{vm.authedUser.username}} user!</p>
+				<p>This site is only for test purpose, to demonstrate nowadays
+					used various technologies for web development.
+				<p>
+				<p>Used technologies:</p>
+				<ul>
+					<li>Spring WEB MVC</li>
+					<li>Spring Security</li>
+					<li>MyBatis</li>
+					<li>Liquibase</li>
+					<li>AngularJS</li>
+				</ul>
+			</div>
+		</div>
+		<div class="loader" data-loading>
+			<img src="resources/images/loading.gif" />
+		</div>
+		<div ng-show="vm.messages.success == true">
+			<div class="alert alert-success">
+				<strong>Success!</strong> {{vm.messages.message}}
+			</div>
+		</div>
+	</div>
+	<!-- /#page-wrapper -->

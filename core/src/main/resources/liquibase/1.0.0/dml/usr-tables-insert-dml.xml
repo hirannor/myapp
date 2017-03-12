@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="mkarolyi" id="usr:insert:dml:1.0.0" runOnChange="true" dbms="mysql">
+		<insert tableName="USR_USER">
+			<column name="name">Mate Karolyi</column>
+			<column name="age">25</column>
+			<column name="email">admin@localhost.com</column>
+		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">David Klusoczki</column>
+			<column name="age">27</column>
+			<column name="email">customer1@localhost.com</column>
+		</insert>
+		<insert tableName="USR_USER">
+			<column name="name">Anges Harangi</column>
+			<column name="age">25</column>
+			<column name="email">customer2@localhost.com</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">admin</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">Y</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">admin</column>
+			<column name="role">ADMIN</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer1</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">N</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer1</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+		<insert tableName="USR_AUTH">
+			<column name="username">customer2</column>
+			<column name="password">$2a$10$jSjnZU9B8FCYL1d7/Nwdn.4b.yHP5VmsXWf7YMuesDqogd1TWdUha
+			</column>
+			<column name="enabled">Y</column>
+		</insert>
+		<insert tableName="USR_ROLE">
+			<column name="username">customer2</column>
+			<column name="role">CUSTOMER</column>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

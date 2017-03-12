@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/email/service/bean"
+	xmlns="http://myapp/email/service/bean" xmlns:customer="http://myapp/email/service/bean"
+	elementFormDefault="qualified">
+
+	<xsd:complexType name="emailSendRequest">
+		<xsd:sequence>
+			<xsd:element name="Subject" type="xsd:string"/>
+			<xsd:element name="ToEmail" type="xsd:string"/>
+			<xsd:element name="Message" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="EmailSendResponse">
+		<xsd:sequence>
+			<xsd:element name="Message" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

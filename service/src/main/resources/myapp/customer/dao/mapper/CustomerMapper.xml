@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myapp.customer.dao.mapper.CustomerMapper">
+
+	<resultMap type="myapp.customer.bean.Customer" id="CustomerResultMap">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="role" column="role" />
+		<result property="name" column="name" />
+		<result property="age" column="age" />
+		<result property="email" column="email" />
+	</resultMap>
+
+	<select id="getCustomer" resultMap="CustomerResultMap">
+		select a.id, c.username, b.role,
+		a.name, a.age, a.email from usr_user a
+		inner join usr_role b on
+		(a.id = b.id) inner join usr_auth c on
+		(b.username = c.username) where c.username = #{username}
+	</select>
+</mapper>

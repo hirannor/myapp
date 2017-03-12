@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/core/authentication/userdetails/bean" xmlns="http://myapp/core/authentication/userdetails/bean"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+	elementFormDefault="qualified">
+
+	<xsd:complexType name="userInfo">
+		<xsd:sequence>
+			<xsd:element name="Username" type="xsd:string"/>
+			<xsd:element name="Password" type="xsd:string"/>
+			<xsd:element name="Role" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+		<xsd:complexType name="loginRequest">
+		<xsd:sequence>
+			<xsd:element name="Username" type="xsd:string"/>
+			<xsd:element name="Password" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,48 @@
+<div class="modal-header">
+	<div class="pull-right">
+		<a href="#" ng-click="cancel()"><span
+			class="glyphicon glyphicon-remove"></span></a>
+	</div>
+	<h3 class="modal-title">
+		<b>{{customer.name}}</b>
+	</h3>
+
+</div>
+<div class="modal-body">
+	<div class="container">
+		<h4>
+			<u><b>Customer details</b></u>
+		</h4>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+				<p>
+					<b>Username:</b> {{customer.username}}
+				<p>
+				<p>
+					<b>Name:</b> {{customer.name}}
+				<p>
+				<p>
+					<b>Role:</b> {{customer.role}}
+				<p>
+				<p>
+					<b>Email:</b> {{customer.email}}
+				<p>
+				<p>
+					<b>Age:</b> {{customer.age}}
+				<p>
+				<p>
+					<b>Status:</b> 
+					<div ng-if="customer.accountStatus == 'Y'">
+						ACTIVE
+					</div>
+					<div ng-if="customer.accountStatus == 'N'">
+						DISABLED
+					</div>
+				<p>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="modal-footer"></div>

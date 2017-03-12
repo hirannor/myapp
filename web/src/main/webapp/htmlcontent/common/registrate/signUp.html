@@ -1,0 +1,95 @@
+<div class="container">
+	<div class="row">
+
+		<form class="form-horizontal" name="registrateForm" role="form"
+			ng-submit="vm.registrateAction()">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Register Here</legend>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Username</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput"
+							placeholder="Insert your First Name"
+							class="form-control input-md" type="text"
+							ng-model="vm.registrate.username"> <span
+							class="help-block"> </span>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Name</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput"
+							placeholder="Insert your First Name"
+							class="form-control input-md" type="text"
+							ng-model="vm.registrate.name"> <span class="help-block">
+						</span>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Age</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput"
+							placeholder="Insert your Last Name" class="form-control input-md"
+							type="text" ng-model="vm.registrate.age"> <span
+							class="help-block"> </span>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput" type="email">Email</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput"
+							placeholder="Insert your Email" class="form-control input-md"
+							type="text" ng-model="vm.registrate.email"> <span
+							class="help-block"> </span>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput"
+						type="password">Password</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput"
+							placeholder="Insert your Password" class="form-control input-md"
+							type="password" ng-model="vm.registrate.password"> <span
+							class="help-block"> </span>
+					</div>
+				</div>
+
+
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="singlebutton"> </label>
+					<div class="col-md-4">
+						<button id="singlebutton" name="singlebutton"
+							class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</div>
+				<a href="#" ui-sref="home">Back to login</a>
+			</fieldset>
+		</form>
+
+		<div class="loader" data-loading>
+			<img src="resources/images/loading.gif" />
+		</div>
+		<div class="form-group">
+			<div class="col-md-12 control">
+				<div ng-show="vm.messages.success == false">
+					<div class="alert alert-danger">
+						<strong>WARNING! </strong> {{vm.messages.message}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

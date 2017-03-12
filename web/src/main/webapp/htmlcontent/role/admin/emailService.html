@@ -1,0 +1,57 @@
+<div id="page-wrapper">
+	<div class="col-lg-12">
+
+		<form class="form-horizontal" name="notificationForm" role="form"
+			ng-submit="vm.sendNotification()">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Send Email to Customer</legend>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label for="toEmail">To:</label> <input type="text"
+						class="form-control" id="toEmail" ng-model="vm.email.toEmail">
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label for="subject">Subject:</label> <input type="text"
+						class="form-control" id="subject" ng-model="vm.email.subject">
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label for="message">Message:</label>
+					<textarea class="form-control" rows="5" id="message"
+						ng-model="vm.email.message"></textarea>
+				</div>
+
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="singlebutton"> </label>
+					<div class="col-md-4">
+						<button id="singlebutton" name="singlebutton"
+							class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<div class="loader" data-loading>
+			<img src="resources/images/loading.gif" />
+		</div>
+		<div ng-show="vm.messages.success == true">
+			<div class="alert alert-success">
+				<strong>Success!</strong> {{vm.messages.message}}
+			</div>
+		</div>
+
+		<div ng-show="vm.messages.success == false">
+			<div class="alert alert-danger">
+				<strong>WARNING! </strong> {{vm.messages.message}}
+			</div>
+		</div>
+
+	</div>
+</div>

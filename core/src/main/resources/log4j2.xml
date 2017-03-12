@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+
+	<Appenders>
+		<File name="core" fileName="/logs/core.log" append="true">
+			<PatternLayout
+				pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
+		</File>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5p];%d{yyyy-MM-dd HH:mm:ss};[%t];%C{1};(%F:%L);%m%n" />
+		</Console>
+	</Appenders>
+
+	<appender name="springAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="D:/Development/logs/spring-log.log" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss}  [%t]:%c{5}.%M()%L %m%n" />
+		</layout>
+	</appender>
+
+	<category name="org.springframework">
+		<level value="debug" />
+	</category>
+
+	<category name="org.springframework.beans">
+		<level value="debug" />
+	</category>
+
+	<category name="org.springframework.security">
+		<level value="debug" />
+	</category>
+
+	<category name="org.springframework.beans.CachedIntrospectionResults">
+		<level value="debug" />
+	</category>
+
+	<category name="org.springframework.jdbc.core">
+		<level value="debug" />
+	</category>
+
+	<category
+		name="org.springframework.transaction.support.TransactionSynchronizationManager">
+		<level value="debug" />
+	</category>
+
+	<Loggers>
+		<Logger name="org.springframework.security" level="debug">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="core" />
+		</Logger>
+		<Logger name="org.springframework" level="debug">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="core" />
+		</Logger>
+		<Logger name="rg.springframework.beans" level="debug">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="core" />
+		</Logger>
+		<Logger name="org.springframework.jdbc.core" level="debug">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="core" />
+		</Logger>
+	</Loggers>
+</Configuration>

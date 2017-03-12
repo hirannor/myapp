@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="mkarolyi" id="usr_tables:create:ddl:1.0.0" runOnChange="true" dbms="mysql"> 
+		<createTable tableName="USR_USER">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="VARCHAR(30)" />
+			<column name="age" type="INT" />
+			<column name="email" type="VARCHAR(30)" />
+		</createTable>
+		
+		<createTable tableName="USR_AUTH">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKeyName="PK_USR_AUTH_ID" primaryKey="true" />
+			</column>
+			<column name="username" type="varchar(45)" />
+			<column name="password" type="varchar(100)" />
+			<column name="enabled" type="varchar(1)" />
+		</createTable>
+
+		<createTable tableName="USR_ROLE">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKeyName="PK_USR_ROLE_ID" primaryKey="true" />
+			</column>
+			<column name="username" type="varchar(45)" />
+			<column name="role" type="varchar(20)" />
+		</createTable>
+		
+		<addForeignKeyConstraint constraintName="FK_USR_ROLE_ID"
+			referencedTableName="USR_USER" baseColumnNames="id"
+			baseTableName="USR_ROLE" referencedColumnNames="id" />
+		<addForeignKeyConstraint constraintName="FK_USR_AUTH_ID"
+			referencedTableName="USR_USER" baseColumnNames="id"
+			baseTableName="USR_AUTH" referencedColumnNames="id" />
+	</changeSet>
+	
+
+
+</databaseChangeLog>

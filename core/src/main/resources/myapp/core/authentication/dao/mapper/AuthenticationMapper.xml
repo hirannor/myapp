@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myapp.core.authentication.dao.mapper.AuthenticationMapper">
+
+	<resultMap type="myapp.core.authentication.userdetails.bean.UserInfo" id="UserDetailsResultMap">
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="role" column="role" />
+	</resultMap>
+
+	<select id="getUserInfo" resultMap="UserDetailsResultMap">
+		select a.username,
+		a.password, b.role from usr_auth a inner join usr_role b on
+		(a.username = b.username) join usr_user c on (b.id = c.id) where enabled = 'Y' and (a.username =
+		#{usernameOrPassword} or c.email = #{usernameOrPassword})
+	</select>
+</mapper>

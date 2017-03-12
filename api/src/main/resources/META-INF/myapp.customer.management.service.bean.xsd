@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/customer/management/service/bean"
+	xmlns="http://myapp/customer/management/service/bean"
+	xmlns:customer="http://myapp/customer/bean"
+	elementFormDefault="qualified">
+
+	<xsd:import namespace="http://myapp/customer/bean"
+		schemaLocation="myapp.customer.bean.xsd" />
+
+
+	<xsd:complexType name="getCustomerServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="customer:customer"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="addCustomerServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Message" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="changeStatusRequest">
+		<xsd:sequence>
+			<xsd:element name="status" type="xsd:string" />
+			<xsd:element name="username" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="addCustomerServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="customer:customer" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="getCustomerListServiceReply">
+		<xsd:sequence>
+			<xsd:element name="CustomerList" type="customer:customer"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerDeleteServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="Id" type="customer:customerId" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerDeleteServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Message" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerSearchServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="SearchCondition" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerSearchServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Customers" type="customer:customer"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerEditServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="customer:customer" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="customerEditServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="customer:customer" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
