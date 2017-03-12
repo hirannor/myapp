@@ -27,7 +27,7 @@ Single page web application which uses nowadays known technologies.
 
 ## Requirements
 - Application server e.g: Tomcat
-- Database server e,g: MySQL
+- Database server e.g: MySQL
 - Mail server e.g: Mercury
 - Mail client e.g: Mozilla Thunderbird
 
