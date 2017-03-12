@@ -141,13 +141,24 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 						}
 					})
 			.state(
+					'customer.myProfile',
+					{
+						url: 'myProfile',
+						views : {
+							"content@customer" : {
+								templateUrl : 'htmlcontent/role/customer/profile.html',
+								controller : 'CustomerController',
+								controllerAs : 'vm'
+							}
+						}
+					})
+			.state(
 					'customer.service',
 					{
 						url: 'services',
 						views : {
 							"content@customer" : {
 								templateUrl : 'htmlcontent/role/customer/services.html',
-//								controller : 'CustomerController',
 								controllerAs : 'vm'
 							}
 						}
@@ -159,7 +170,6 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 						views : {
 							"content@customer" : {
 								templateUrl : 'htmlcontent/role/customer/aboutUs.html',
-//								controller : 'CustomerController',
 								controllerAs : 'vm'
 							}
 						}

@@ -14,12 +14,13 @@ Single page web application which uses nowadays known technologies.
 * Authentication
 * CSRF protection
 * Role based authorization (ADMIN, CUSTOMER)
-* Admin role:
+* Admin role
  * Customer management (Edit, Delete(logical, physical))
  * Email sending
- * Logout
  * View Profile
-* Customer role:
+ * Logout
+* Customer role
+ * View Profile
  * Logout
 * Registration (With email notification)
 * Reset password (With email notification)
@@ -79,8 +80,13 @@ resources:resources liquibase:dropAll
 |   Username    |  Password    |   Role   | Account Status |
 |---------------|--------------|----------|----------------|
 |     admin     |  password    |  ADMIN   |     ENABLED    |
-|   customer1   |  password    | CUSTOMER |    DISABLED    |
+|   customer1   |  password    | CUSTOMER |     ENABLED    |
 |   customer2   |  password    | CUSTOMER |     ENABLED    |
+|   customer3   |  password    | CUSTOMER |    DISABLED    |
+|   customer4   |  password    | CUSTOMER |    DISABLED    |
+|   customer5   |  password    | CUSTOMER |    DISABLED    |
+|   customer6   |  password    | CUSTOMER |    DISABLED    |
+
 
 ## Class diagramm
 ### Service Layer (Business Logic)
