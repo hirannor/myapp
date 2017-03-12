@@ -1,13 +1,18 @@
 <div class="container">
-	<div class="row">
-
+	<div class="panel-body">
 		<legend>My Profile</legend>
 
-		<p>Username: {{vm.authedUser.username}}</p>
-		<p>Role: {{vm.authedUser.role}}</p>
-		<p>Name: {{vm.authedUser.name}}</p>
-		<p>Age: {{vm.authedUser.age}}</p>
-		<p>Email: {{vm.authedUser.email}}</p>
-
+		<ul class="list-group">
+			<li class="list-group-item text-right"><span class="pull-left"><strong
+					class="">Username</strong></span> {{vm.authedUser.username}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong
+					class="">Role</strong></span> {{vm.authedUser.role}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong
+					class="">Name</strong></span> {{vm.authedUser.name}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong
+					class="">Age</strong></span> {{vm.authedUser.age}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong
+					class="">Email</strong></span> {{vm.authedUser.email}}</li>
+		</ul>
 	</div>
 </div>
