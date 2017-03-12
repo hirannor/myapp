@@ -2,19 +2,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>hu.uni.miskolc.iit</groupId>
+		<groupId>myapp</groupId>
 		<artifactId>myapp</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>core</artifactId>
 	<name>service</name>
-	<groupId>hu.uni.miskolc.iit.core</groupId>
+	<groupId>myapp.core</groupId>
 
 	<properties>
 		<liquibase-maven-plugin.version>3.5.3</liquibase-maven-plugin.version>
 		<maven-jaxb2-plugin.version>0.8.1</maven-jaxb2-plugin.version>
 		<maven-jaxb2-basics.version>0.11.0</maven-jaxb2-basics.version>
 		<maven-remote-resources.version>1.5</maven-remote-resources.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -200,6 +201,15 @@
 					<includes>
 						<include>${basedir}/src/main/resources/*</include>
 					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
