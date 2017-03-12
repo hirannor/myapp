@@ -49,7 +49,7 @@ Add the following tag to your tomcat **context.xml** with your valid db details:
   
  Mercury mail server & Mozilla Thunderbird configuration: [Mercury & Thunderbird configuration](https://schophel.wordpress.com/2015/10/14/set-up-mercury-mail-for-mailing-in-localhost-with-thunderbird-xampp/)
  
-Update **liquibase.properties** with valid details in **core artifact** under ** [src/main/resources/properties/liquibase/](https://github.com/hirannor/myapp/tree/master/core/src/main/resources/properties/liquibase)** folder
+Update **liquibase.properties** with valid details in **core artifact** under [src/main/resources/properties/liquibase/](https://github.com/hirannor/myapp/tree/master/core/src/main/resources/properties/liquibase) folder
 
     url=jdbc:mysql://localhost:3306/YourDatabaseName?useUnicode=true&characterEncoding=UTF-8
     username=username
