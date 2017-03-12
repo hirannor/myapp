@@ -13,10 +13,24 @@
 	</resultMap>
 
 	<select id="getCustomer" resultMap="CustomerResultMap">
-		select a.id, c.username, b.role,
-		a.name, a.age, a.email from usr_user a
-		inner join usr_role b on
-		(a.id = b.id) inner join usr_auth c on
-		(b.username = c.username) where c.username = #{username}
+		SELECT 
+			a.id, 
+			a.name,
+			a.age,
+			a.email,
+			b.role,
+			c.username
+		FROM 
+			usr_user a
+		INNER JOIN
+			usr_role b 
+		ON
+			(a.id = b.id) 
+		INNER JOIN
+			 usr_auth c
+		ON
+			(b.username = c.username)
+		WHERE 
+			c.username = #{username}
 	</select>
 </mapper>

@@ -10,9 +10,23 @@
 	</resultMap>
 
 	<select id="getUserInfo" resultMap="UserDetailsResultMap">
-		select a.username,
-		a.password, b.role from usr_auth a inner join usr_role b on
-		(a.username = b.username) join usr_user c on (b.id = c.id) where enabled = 'Y' and (a.username =
-		#{usernameOrPassword} or c.email = #{usernameOrPassword})
+		SELECT 
+			a.username,
+			a.password, 
+			b.role 
+		FROM 
+			usr_auth a 
+		INNER JOIN 
+			usr_role b 
+		ON
+			(a.username = b.username) 
+		INNER JOIN 
+			usr_user c 
+		ON 
+			(b.id = c.id) 
+		WHERE 
+			enabled = 'Y' 
+		AND 
+			(a.username = #{usernameOrPassword} or c.email = #{usernameOrPassword})
 	</select>
 </mapper>

@@ -6,50 +6,57 @@
 	<insert id="insertCustomer" parameterType="myapp.common.service.bean.RegistrateRequest">
 		INSERT INTO USR_USER
 		(
-		name,
-		age,
-		email
+			name,
+			age,
+			email
 		)
-		VALUES(
-		#{name},
-		#{age},
-		#{email}
+		VALUES
+		(
+			#{name},
+			#{age},
+			#{email}
 		)
 	</insert>
 
 	<insert id="insertUsrAuth">
 		INSERT INTO USR_AUTH
 		(
-		username,
-		password,
-		enabled
+			username,
+			password,
+			enabled
 		)
-		VALUES(
-		#{username},
-		#{password},
-		'Y'
+		VALUES
+		(
+			#{username},
+			#{password},
+			'Y'
 		)
 	</insert>
 
 	<insert id="insertUsrRole">
 		INSERT INTO USR_ROLE
 		(
-		username,
-		role
+			username,
+			role
 		)
-		VALUES(
-		#{username},
-		#{role}
+		VALUES
+		(
+			#{username},
+			#{role}
 		)
 	</insert>
 	
 	<update id="resetPassword" >
-		UPDATE usr_auth AS a
-		INNER JOIN usr_user AS b
-		ON (a.id = b.id)
-		SET password = #{newPassword}
+		UPDATE 
+			usr_auth AS a
+		INNER JOIN 
+			usr_user AS b
+		ON 
+			(a.id = b.id)
+		SET 
+			password = #{newPassword}
 		WHERE
-		b.email = #{email}
+			b.email = #{email}
 	</update>
 
 

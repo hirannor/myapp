@@ -15,49 +15,64 @@
 	</resultMap>
 
 	<delete id="deleteUsrAuthById" parameterType="Integer">
-		DELETE
-		FROM
-		USR_AUTH
-		where id = #{id}
+		DELETE FROM
+			usr_auth
+		WHERE 
+			id = #{id}
 	</delete>
 
 	<delete id="deleteUsrRoleById" parameterType="Integer">
-		DELETE
-		FROM
-			USR_ROLE
+		DELETE FROM
+			usr_role
 		WHERE 
 			id = #{id}
 	</delete>
 
 	<delete id="deleteCustomerById" parameterType="Integer">
-		DELETE
-		FROM
-			USR_USER 
-		WHERE id = #{id}
+		DELETE FROM
+			usr_user 
+		WHERE
+			 id = #{id}
 	</delete>
 
 	<select id="getCustomerList" resultMap="CustomerResultMap">
-		select a.id, c.username, c.password,
-		b.role,
-		a.name, a.age, a.email, c.enabled from USR_USER a
-		inner
-		join usr_role b on
-		(a.id = b.id) inner join usr_auth c on
-		(b.username =
-		c.username) where b.role not LIKE 'ADMIN'
+		SELECT 
+			a.id,
+			a.name, 
+			a.age, 
+			a.email,
+			b.role,
+			c.username, 
+			c.password,
+			c.enabled
+		FROM 
+			usr_user a
+		INNER JOIN
+			usr_role b 
+		ON
+			(a.id = b.id) 
+		INNER JOIN 
+			usr_auth c 
+		ON
+			(b.username = c.username) 
+		WHERE 
+			b.role 
+		NOT LIKE 
+			'ADMIN'
 	</select>
 
 	<update id="changeAccountStatus" parameterType="myapp.customer.management.service.bean.ChangeStatusRequest">
-		UPDATE USR_AUTH
+		UPDATE 
+			usr_auth
 		SET
 			enabled = #{status}
 		WHERE 
 			username = #{username}
 	</update>
 	
-	<update id="editCustomer" parameterType="myapp.customer.bean.Customer"
-		keyProperty="id" keyColumn="id">
-		UPDATE USR_USER
+	<update id="editCustomer" parameterType="myapp.customer.bean.Customer" keyProperty="id" keyColumn="id">
+		UPDATE 
+			usr_user
 		SET
 			name = #{name},
 			age = #{age},
