@@ -5,13 +5,12 @@ function CustomerManagementController(CustomerManagementService, LoginService, $
 	vm.customers = {};
 	vm.messages = {}
 	
-	var param = $stateParams.param;
-
-	if(angular.isDefined(param) && param.success != null)
+	if(angular.isDefined($stateParams.param) && $stateParams.param.success != null)
 	{
-		if (param.success == true)
+		var isSuccess = $stateParams.param.success;
+		if(isSuccess)
 		{
-			vm.messages = param;
+			vm.messages = $stateParams.param;
 		}
 	}
 	

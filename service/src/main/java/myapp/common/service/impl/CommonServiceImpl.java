@@ -59,6 +59,7 @@ public class CommonServiceImpl implements CommonService
 		commonDao.insertCustomer(registrateRequest);
 		commonDao.insertUsrAuth(registrateRequest.getUsername(), hashedPassword);
 		commonDao.insertUsrRole(registrateRequest.getUsername(), CustomerService.DEFAULT_ROLE);
+
 		emailService.registrationNotification(customer);
 
 	}

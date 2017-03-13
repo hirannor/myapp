@@ -13,7 +13,7 @@ function RegistrateController(RegistrateService, $state) {
 			} else {
 				var obj = {
 					success : data.data.success,
-					message : 'Registration was successfull'
+					message : 'Registration was successfull!'
 				};
 				$state.go('home', {
 					param : obj

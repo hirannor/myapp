@@ -72,7 +72,7 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 							"content@admin" : {
 								templateUrl : 'htmlcontent/role/admin/customerManagement.html',
 								controller : 'CustomerManagementController',
-								controllerAs : 'vm'
+								controllerAs : 'vm',
 							}
 						}
 					})
@@ -84,7 +84,7 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 							"content@admin" : {
 								templateUrl : 'htmlcontent/role/admin/emailService.html',
 								controller : 'NotificationController',
-								controllerAs : 'vm'
+								controllerAs : 'vm',
 							}
 						}
 					})
