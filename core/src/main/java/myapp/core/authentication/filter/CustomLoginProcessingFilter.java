@@ -40,19 +40,6 @@ public class CustomLoginProcessingFilter extends AbstractAuthenticationProcessin
 			AuthenticationFailureHandler failureHandler, ObjectMapper objectMapper)
 	{
 		super(defaultProcessUrl);
-
-		if (objectMapper == null)
-		{
-			throw new IllegalArgumentException(objectMapper + " Bean creation error!");
-		}
-		if (successHandler == null)
-		{
-			throw new IllegalArgumentException(successHandler + " Bean creation error!");
-		}
-		if (failureHandler == null)
-		{
-			throw new IllegalArgumentException(failureHandler + " Bean creation error!");
-		}
 		this.objectMapper = objectMapper;
 		this.successHandler = successHandler;
 		this.failureHandler = failureHandler;

@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import myapp.core.authentication.dao.AuthenticationDao;
+import myapp.core.authentication.exception.AccountIsDisabledException;
 import myapp.core.authentication.userdetails.bean.UserInfo;
 
 /**
@@ -32,14 +33,6 @@ public class AuthenticationProviderImpl implements AuthenticationProvider
 
 	public AuthenticationProviderImpl(AuthenticationDao authenticationDao, BCryptPasswordEncoder bCryptPasswordEncoder)
 	{
-		if (authenticationDao == null)
-		{
-			throw new IllegalArgumentException(authenticationDao + " Bean creation error!");
-		}
-		if (bCryptPasswordEncoder == null)
-		{
-			throw new IllegalArgumentException(bCryptPasswordEncoder + " Bean creation error!");
-		}
 		this.authenticationDao = authenticationDao;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
@@ -62,6 +55,10 @@ public class AuthenticationProviderImpl implements AuthenticationProvider
 		if (userInfo.getRole() == null)
 		{
 			throw new InsufficientAuthenticationException("User has no roles assigned");
+		}
+		if(!userInfo.isEnabled())
+		{
+			throw new AccountIsDisabledException("Account is parmanently disabled!");
 		}
 		GrantedAuthority authority = new SimpleGrantedAuthority(userInfo.getRole());
 

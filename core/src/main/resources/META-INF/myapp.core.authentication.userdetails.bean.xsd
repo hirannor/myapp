@@ -8,11 +8,12 @@
 		<xsd:sequence>
 			<xsd:element name="Username" type="xsd:string"/>
 			<xsd:element name="Password" type="xsd:string"/>
+			<xsd:element name="Enabled" type="xsd:boolean"/>
 			<xsd:element name="Role" type="xsd:string"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
-		<xsd:complexType name="loginRequest">
+	<xsd:complexType name="loginRequest">
 		<xsd:sequence>
 			<xsd:element name="Username" type="xsd:string"/>
 			<xsd:element name="Password" type="xsd:string"/>

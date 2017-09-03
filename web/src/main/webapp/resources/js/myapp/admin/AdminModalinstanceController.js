@@ -1,14 +1,14 @@
 function AdminModalinstanceController($modalInstance, item, $scope) {
 	var vm = this;
 
-	$scope.customer = item;
+	$scope.user = item;
 
 	$scope.cancel = function cancel() {
 		$modalInstance.dismiss('cancel');
 	};
 
 	$scope.ok = function ok() {
-		$modalInstance.close($scope.customer);
+		$modalInstance.close($scope.user);
 	};
 
 };

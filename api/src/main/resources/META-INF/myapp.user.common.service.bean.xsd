@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/user/common/service/bean"
+	xmlns="http://myapp/user/common/service/bean" xmlns:user="http://myapp/user/bean"
+	elementFormDefault="qualified">
+
+	<xsd:import namespace="http://myapp/user/bean"
+		schemaLocation="myapp.user.bean.xsd" />
+
+	<xsd:complexType name="registrateRequest">
+		<xsd:sequence>
+			<xsd:element name="Username" type="xsd:string" />
+			<xsd:element name="Password" type="xsd:string" />
+			<xsd:element name="Name" type="user:name" />
+			<xsd:element name="Age" type="user:age" />
+			<xsd:element name="Email" type="user:email" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="resetPasswordRequest">
+		<xsd:sequence>
+			<xsd:element name="Email" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resetPasswordReply">
+		<xsd:sequence>
+			<xsd:element name="NewPassword" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

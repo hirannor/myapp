@@ -15,13 +15,15 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 @Configuration
 public class DataBaseConfiguration
 {
+	private static final String DATASOURCE = "java:comp/env/jdbc/CustomerDB";
+	
 	@Bean
 	public DataSource dataSource()
 	{
 		final JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
 		dsLookup.setResourceRef(true);
 
-		DataSource dataSource = dsLookup.getDataSource("java:comp/env/jdbc/CustomerDB");
+		DataSource dataSource = dsLookup.getDataSource(DATASOURCE);
 		return dataSource;
 	}
 }

@@ -6,37 +6,41 @@
 
 	<changeSet author="mkarolyi" id="usr_tables:create:ddl:1.0.0" runOnChange="true" dbms="mysql, oracle"> 
 		<createTable tableName="USR_USER">
-			<column autoIncrement="true" name="id" type="INT">
-				<constraints primaryKey="true" />
-			</column>
+			<column name="usr_id" type="VARCHAR(10)"/>
 			<column name="name" type="VARCHAR(30)" />
 			<column name="age" type="INT" />
 			<column name="email" type="VARCHAR(30)" />
 		</createTable>
 		
-		<createTable tableName="USR_AUTH">
-			<column autoIncrement="true" name="id" type="INT">
-				<constraints primaryKeyName="PK_USR_AUTH_ID" primaryKey="true" />
-			</column>
+		<createTable tableName="USR_AUTHENTICATION">
+			<column name="usr_id" type="INT"/>
 			<column name="username" type="varchar(45)" />
 			<column name="password" type="varchar(100)" />
 			<column name="enabled" type="varchar(1)" />
 		</createTable>
 
 		<createTable tableName="USR_ROLE">
-			<column autoIncrement="true" name="id" type="INT">
-				<constraints primaryKeyName="PK_USR_ROLE_ID" primaryKey="true" />
-			</column>
-			<column name="username" type="varchar(45)" />
+			<column name="roleid" type="INT" />
 			<column name="role" type="varchar(20)" />
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="FK_USR_ROLE_ID"
-			referencedTableName="USR_USER" baseColumnNames="id"
-			baseTableName="USR_ROLE" referencedColumnNames="id" />
-		<addForeignKeyConstraint constraintName="FK_USR_AUTH_ID"
-			referencedTableName="USR_USER" baseColumnNames="id"
-			baseTableName="USR_AUTH" referencedColumnNames="id" />
+		<createTable tableName="USR_AUTHORIZATION">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="usr_id" type="INT"/>
+			<column name="roleid" type="INT" />
+			<column name="function" type="varchar(20)" />
+			<column name="operation" type="varchar(20)" />
+		</createTable>
+		
+		
+<!-- 		<addForeignKeyConstraint constraintName="FK_USR_ROLE_ID" -->
+<!-- 			referencedTableName="USR_USER" baseColumnNames="id" -->
+<!-- 			baseTableName="USR_ROLE" referencedColumnNames="id" /> -->
+<!-- 		<addForeignKeyConstraint constraintName="FK_USR_AUTHENTICATION_ID" -->
+<!-- 			referencedTableName="USR_USER" baseColumnNames="id" -->
+<!-- 			baseTableName="USR_AUTHENTICATION" referencedColumnNames="id" /> -->
 	</changeSet>
 	
 

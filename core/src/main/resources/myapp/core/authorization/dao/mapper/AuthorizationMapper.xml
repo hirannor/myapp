@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myapp.core.authorization.dao.mapper.AuthorizationMapper">
+
+	<resultMap type="myapp.core.authorization.service.bean.IsAuthorizedReply" id="isAuthorizedResultMap">
+		<result property="username" column="username" />
+		<association property="authority" javaType="myapp.core.bean.Authority">
+			<result property="function" column="function" javaType="java.lang.String"/>
+			<result property="operation" column="operation" javaType="java.lang.String"/>
+		</association>
+	</resultMap>
+
+	<select id="isAuthorized" resultMap="isAuthorizedResultMap">
+		SELECT 
+			b.username,
+			a.function, 
+			a.operation
+		FROM 
+			usr_authorization a
+		INNER JOIN
+			usr_authentication b
+		ON
+			(a.usr_id = b.usr_id)
+		WHERE 
+			b.username = #{request.username}
+		AND
+			a.function = #{request.authority.function}
+		AND
+			a.operation = #{request.authority.operation}
+			
+	</select>
+</mapper>

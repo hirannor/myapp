@@ -29,10 +29,6 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
 
 	public CustomAuthenticationFailureHandler(ObjectMapper objectMapper)
 	{
-		if (objectMapper == null)
-		{
-			throw new IllegalArgumentException(objectMapper + " Bean creation error!");
-		}
 		this.objectMapper = objectMapper;
 	}
 

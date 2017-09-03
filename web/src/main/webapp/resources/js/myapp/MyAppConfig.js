@@ -49,35 +49,33 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 							},
 							"sideBar@admin" : {
 								templateUrl : 'htmlcontent/role/admin/sideBar.html',
-								controller : 'AdminController',
+								controller : 'LoginController',
 								controllerAs : 'vm'
 							},
 							"header@admin" : {
 								templateUrl : 'htmlcontent/role/admin/header.html',
-								controller : 'AdminController',
+								controller : 'LoginController',
 								controllerAs : 'vm'
 							},
 							"content@admin" : {
 								templateUrl : 'htmlcontent/role/admin/startPage.html',
-								controller : 'AdminController',
-								controllerAs : 'vm'
 							}
 						}
 					})
 			.state(
-					'admin.customerManagement',
+					'admin.userManagement',
 					{
-						url : 'customermanagement',
+						url : 'userManagement',
 						views : {
 							"content@admin" : {
-								templateUrl : 'htmlcontent/role/admin/customerManagement.html',
-								controller : 'CustomerManagementController',
+								templateUrl : 'htmlcontent/role/admin/userManagement.html',
+								controller : 'UserManagementController',
 								controllerAs : 'vm',
 							}
 						}
 					})
 			.state(
-					'admin.emailService',
+					'admin.notification',
 					{
 						url : 'notification',
 						views : {
@@ -85,18 +83,6 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 								templateUrl : 'htmlcontent/role/admin/emailService.html',
 								controller : 'NotificationController',
 								controllerAs : 'vm',
-							}
-						}
-					})
-			.state(
-					'admin.profile',
-					{
-						url : 'profile',
-						views : {
-							"content@admin" : {
-								templateUrl : 'htmlcontent/role/admin/profile.html',
-								controller : 'AdminController',
-								controllerAs : 'vm'
 							}
 						}
 					})
@@ -113,18 +99,14 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 							},
 							"header@customer" : {
 								templateUrl : 'htmlcontent/role/customer/header.html',
-								controller : 'CustomerController',
-								controllerAs : 'vm'
+								controllerAs : 'vm',
+								controller : 'LoginController',
 							},
 							"content@customer" : {
 								templateUrl : 'htmlcontent/role/customer/startPage.html',
-								controller : 'CustomerController',
-								controllerAs : 'vm'
 							},
 							"footer@customer" : {
 								templateUrl : 'htmlcontent/role/customer/footer.html',
-								controller : 'CustomerController',
-								controllerAs : 'vm'
 							}
 						}
 					})
@@ -147,7 +129,7 @@ function MyAppConfig($stateProvider, $urlRouterProvider, $locationProvider,
 						views : {
 							"content@customer" : {
 								templateUrl : 'htmlcontent/role/customer/profile.html',
-								controller : 'CustomerController',
+								controller : 'PersonalSettingsController',
 								controllerAs : 'vm'
 							}
 						}

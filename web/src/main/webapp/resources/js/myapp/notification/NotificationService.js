@@ -8,7 +8,7 @@ function NotificationService($http) {
 	return service;
 	
 	function sendNotification(data) {
-		return $http.post('admin/notification/sendNotification', data);
+		return $http.post('notification/sendNotification', data);
 	}
 	
 };

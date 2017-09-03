@@ -47,7 +47,7 @@ function LoginController(LoginService, $state, $stateParams, $modal) {
 				message: data.data.message,
 				authority: data.data.authority
 			}
-			if(obj.authority == 'ADMIN')
+			if(obj.authority == 'ADMIN' || obj.authority == 'READONLY')
 			{
 				$state.go('admin', { param: obj});
 			}
@@ -60,6 +60,19 @@ function LoginController(LoginService, $state, $stateParams, $modal) {
 			vm.messages = errorResponse.data;
 		});
 	};
+	
+	vm.logout = function logoutAction() {
+		LoginService.logout().then(function(data) {
+			var obj = {
+				success: data.data.success,
+				message: data.data.message
+			}
+			$state.go('home', { param: obj  });
+	}, function(errorResponse) {
+		vm.messages = errorResponse.data.message;
+	});
+	
+};
 	
 };
 LoginController.$inject = ['LoginService','$state', '$stateParams', '$modal'];

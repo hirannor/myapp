@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myapp.user.dao.mapper.UserMapper">
+
+	<resultMap type="myapp.user.bean.User" id="UserResultMap">
+		<result property="id" column="usr_id" />
+		<result property="username" column="username" />
+		<result property="role" column="role" />
+		<result property="name" column="name" />
+		<result property="age" column="age" />
+		<result property="email" column="email" />
+	</resultMap>
+
+	<select id="getUser" resultMap="UserResultMap">
+		SELECT DISTINCT
+			a.usr_id,
+			a.name, 
+			a.age, 
+			a.email,
+			b.username, 
+			d.role
+		FROM 
+			usr_user a
+		INNER JOIN
+			usr_authentication b 
+		ON
+			(a.usr_id = b.usr_id)
+		LEFT JOIN
+			usr_authorization c
+		ON 
+			(b.usr_id = c.usr_id)
+		LEFT JOIN
+			usr_role d
+		ON 
+			(c.roleid = d.roleid)
+		WHERE
+			b.username = #{username}
+	</select>
+	
+	<insert id="insertUser" parameterType="myapp.user.common.service.bean.RegistrateRequest">
+		INSERT INTO USR_USER
+		(
+			name,
+			age,
+			email
+		)
+		VALUES
+		(
+			#{name},
+			#{age},
+			#{email}
+		)
+	</insert>
+
+	<insert id="insertUsrAuth">
+		INSERT INTO USR_AUTH
+		(
+			username,
+			password,
+			enabled
+		)
+		VALUES
+		(
+			#{username},
+			#{password},
+			'Y'
+		)
+	</insert>
+
+	<insert id="insertUsrRole">
+		INSERT INTO USR_ROLE
+		(
+			username,
+			role
+		)
+		VALUES
+		(
+			#{username},
+			#{role}
+		)
+	</insert>
+	
+	<update id="resetPassword" >
+		UPDATE 
+			usr_auth AS a
+		INNER JOIN 
+			usr_user AS b
+		ON 
+			(a.id = b.id)
+		SET 
+			password = #{newPassword}
+		WHERE
+			b.email = #{email}
+	</update>
+</mapper>

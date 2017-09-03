@@ -19,10 +19,6 @@ public class AuthenticationDaoImpl implements AuthenticationDao
 
 	public AuthenticationDaoImpl(AuthenticationMapper authenticationMapper)
 	{
-		if (authenticationMapper == null)
-		{
-			throw new IllegalArgumentException(authenticationMapper + " Bean creation error!");
-		}
 		this.authenticationMapper = authenticationMapper;
 	}
 

@@ -36,11 +36,13 @@ import myapp.core.bean.Role;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 {
-	public static final String FORM_BASED_LOGIN_ENTRY_POINT = "/login";
-	public static final String ADMIN_ENTRY_POINT = "/admin/**";
-	public static final String CUSTOMER_ENTRY_POINT = "/customer/**";
-	public static final String LOGOUT_URL = "/logout";
-
+	private static final String FORM_BASED_LOGIN_ENTRY_POINT = "/login";
+	private static final String ADMIN_ENTRY_POINT = "/admin/**";
+	private static final String CUSTOMER_ENTRY_POINT = "/customer/**";
+	private static final String LOGOUT_URL = "/logout";
+	private static final String CSRF_TOKEN_HEADER = "X-XSRF-TOKEN";
+	private static final String JSESSIONID = "JSESSIONID";
+	
 	@Autowired
 	private AuthenticationProvider authenticationProvider;
 
@@ -58,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 
 	@Autowired
 	private ObjectMapper objectMapper;
-
+	
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -90,10 +92,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and().sessionManagement()
 				.enableSessionUrlRewriting(true).sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
 				.authorizeRequests().antMatchers(FORM_BASED_LOGIN_ENTRY_POINT).permitAll()
-				.antMatchers(ADMIN_ENTRY_POINT).hasAuthority(Role.ADMIN).antMatchers(ADMIN_ENTRY_POINT).authenticated()
+				.antMatchers(ADMIN_ENTRY_POINT).hasAnyAuthority(Role.ADMIN, Role.READ_ONLY).antMatchers(ADMIN_ENTRY_POINT).authenticated()
 				.antMatchers(CUSTOMER_ENTRY_POINT).hasAuthority(Role.CUSTOMER).antMatchers(CUSTOMER_ENTRY_POINT)
 				.authenticated().and().logout().logoutSuccessHandler(logoutSuccessHandler).invalidateHttpSession(true)
-				.deleteCookies("JSESSIONID").logoutRequestMatcher(new AntPathRequestMatcher(LOGOUT_URL)).and()
+				.deleteCookies(JSESSIONID).logoutRequestMatcher(new AntPathRequestMatcher(LOGOUT_URL)).and()
 				.addFilterBefore(buildAjaxLoginProcessingFilter(), UsernamePasswordAuthenticationFilter.class)
 				.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
 	}
@@ -101,7 +103,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 	private CsrfTokenRepository csrfTokenRepository()
 	{
 		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-		repository.setHeaderName("X-XSRF-TOKEN");
+		repository.setHeaderName(CSRF_TOKEN_HEADER);
 		return repository;
 	}
+	
 }

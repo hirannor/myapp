@@ -27,6 +27,7 @@ public class EmailConfiguration
 	private static final String SMTP_PASSWORD = "${mail.password}";
 	private static final String SMTP_AUTH = "${mail.auth}";
 	private static final String SUBJECT = "NOREPLY";
+	private static final String EMAIL_PROPERTIES_PATH = "properties/mail/mail.properties";
 
 	@Bean
 	public JavaMailSender getJavaMailSender(@Value(SMTP_HOST) String host, @Value(SMTP_PORT) int port,
@@ -63,7 +64,7 @@ public class EmailConfiguration
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer()
 	{
 		PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-		configurer.setLocation(new ClassPathResource("properties/mail/mail.properties"));
+		configurer.setLocation(new ClassPathResource(EMAIL_PROPERTIES_PATH));
 		return configurer;
 	}
 

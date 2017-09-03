@@ -30,6 +30,13 @@
 				</xsd:appinfo>
 			</xsd:annotation>
 		</xsd:attribute>
+		<xsd:attribute name="ReadOnly" type="xsd:string" fixed="READONLY">
+			<xsd:annotation>
+				<xsd:appinfo>
+					<jaxb:property fixedAttributeAsConstantProperty="true" />
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
 		<xsd:attribute name="Customer" type="xsd:string" fixed="CUSTOMER">
 			<xsd:annotation>
 				<xsd:appinfo>
@@ -37,6 +44,13 @@
 				</xsd:appinfo>
 			</xsd:annotation>
 		</xsd:attribute>
+	</xsd:complexType>
+	
+	<xsd:complexType name="authority">
+		<xsd:sequence>
+			<xsd:element name="Function" type="xsd:string"/>
+			<xsd:element name="Operation" type="xsd:string"/>
+		</xsd:sequence>
 	</xsd:complexType>
 
 

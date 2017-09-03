@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/core/authorization/service/bean" xmlns="http://myapp/core/authorization/service/bean" xmlns:core="http://myapp/core/bean"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+	elementFormDefault="qualified">
+
+	<xsd:import namespace="http://myapp/core/bean"
+		schemaLocation="myapp.core.bean.xsd" />
+		
+	<xsd:complexType name="isAuthorizedRequest">
+		<xsd:sequence>
+			<xsd:element name="Username" type="xsd:string" />
+			<xsd:element name="Authority" type="core:authority" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="isAuthorizedReply">
+		<xsd:sequence>
+			<xsd:element name="Username" type="xsd:string" />
+			<xsd:element name="Authority" type="core:authority" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

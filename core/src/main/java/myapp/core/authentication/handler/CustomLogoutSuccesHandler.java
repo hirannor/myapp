@@ -29,10 +29,6 @@ public class CustomLogoutSuccesHandler implements LogoutSuccessHandler
 
 	public CustomLogoutSuccesHandler(ObjectMapper objectMapper)
 	{
-		if (objectMapper == null)
-		{
-			throw new IllegalArgumentException(objectMapper + " Bean creation error!");
-		}
 		this.objectMapper = objectMapper;
 	}
 

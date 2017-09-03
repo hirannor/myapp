@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/personalsettings/facade/bean"
+	xmlns="http://myapp/personalsettings/facade/bean"
+	xmlns:user="http://myapp/user/bean"
+	elementFormDefault="qualified">
+
+	<xsd:import namespace="http://myapp/user/bean"
+		schemaLocation="myapp.user.bean.xsd" />
+
+	<xsd:complexType name="personalInformationsReply">
+		<xsd:sequence>
+			<xsd:element name="UserDetails" type="user:user"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

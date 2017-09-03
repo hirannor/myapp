@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://myapp/user/management/service/bean"
+	xmlns="http://myapp/user/management/service/bean"
+	xmlns:user="http://myapp/user/bean"
+	elementFormDefault="qualified">
+
+	<xsd:import namespace="http://myapp/user/bean"
+		schemaLocation="myapp.user.bean.xsd" />
+
+
+	<xsd:complexType name="getUserServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="User" type="user:user"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="addUserServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Message" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="changeStatusRequest">
+		<xsd:sequence>
+			<xsd:element name="status" type="xsd:string" />
+			<xsd:element name="username" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="addUserServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="User" type="user:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="getUserListServiceReply">
+		<xsd:sequence>
+			<xsd:element name="UserList" type="user:user"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userDeleteServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="Id" type="user:userId" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userDeleteServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Message" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userSearchServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="SearchCondition" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userSearchServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="Users" type="user:user"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userEditServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="User" type="user:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="userEditServiceResponse">
+		<xsd:sequence>
+			<xsd:element name="User" type="user:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

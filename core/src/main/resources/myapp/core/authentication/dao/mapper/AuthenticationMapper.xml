@@ -6,27 +6,31 @@
 	<resultMap type="myapp.core.authentication.userdetails.bean.UserInfo" id="UserDetailsResultMap">
 		<result property="username" column="username" />
 		<result property="password" column="password" />
+		<result property="enabled" column="enabled" javaType="java.lang.Boolean" jdbcType="VARCHAR" typeHandler="myapp.core.mybatis.typehandler.YesNoBooleanTypeHandler" />
 		<result property="role" column="role" />
 	</resultMap>
 
 	<select id="getUserInfo" resultMap="UserDetailsResultMap">
-		SELECT 
-			a.username,
-			a.password, 
-			b.role 
+	SELECT DISTINCT
+			b.username,
+			b.password, 
+			b.enabled,
+			d.role
 		FROM 
-			usr_auth a 
+			usr_user a 
 		INNER JOIN 
-			usr_role b 
+			usr_authentication b
 		ON
-			(a.username = b.username) 
+			(a.usr_id = b.usr_id) 
 		INNER JOIN 
-			usr_user c 
+			usr_authorization c 
 		ON 
-			(b.id = c.id) 
-		WHERE 
-			enabled = 'Y' 
-		AND 
-			(a.username = #{usernameOrPassword} or c.email = #{usernameOrPassword})
+			(b.usr_id = c.usr_id) 
+		INNER JOIN 
+			usr_role d
+		ON 
+			(c.roleid = d.roleid) 
+		WHERE
+			(b.username = #{usernameOrPassword} or a.email = #{usernameOrPassword})
 	</select>
 </mapper>
