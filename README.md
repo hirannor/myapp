@@ -87,9 +87,3 @@ resources:resources liquibase:dropAll
 |   customer5   |  password    | CUSTOMER |    DISABLED    |
 |   customer6   |  password    | CUSTOMER |    DISABLED    |
 
-
-## Class diagramm
-### Service Layer (Business Logic)
-![Service](http://users.iit.uni-miskolc.hu/~karolyi/development/classdiagram/service.png)
-### DAO Layer
-![DAO](http://users.iit.uni-miskolc.hu/~karolyi/development/classdiagram/dao.png)
